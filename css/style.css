@@ -422,6 +422,13 @@ header a:hover {
   outline: none;
   border-color: #250946;
 }
+.signup-main .erors p {
+  text-align: center;
+  color: red;
+}
+.signup-main .erors p:first-of-type {
+  color: #0da30d;
+}
 
 .course-details-main {
   margin: 2rem 0;
@@ -624,7 +631,7 @@ header a:hover {
 .course-create-errors ul {
   margin-left: 1rem;
 }
-.course-create-errors ul li:first-of-type {
+.course-create-errors ul li {
   padding-bottom: 0.5rem;
 }
 

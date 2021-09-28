@@ -13,6 +13,9 @@ export default class ViewCourseDetails{
         this.setHead();
         this.setCourseActions();
         this.setMain();
+
+        this.brand = document.querySelector(".brand");
+        this.brand.addEventListener('click',this.handleBrand);
         
 
         this.LogOutButon = document.querySelector('.home-logout-buton');
@@ -36,14 +39,13 @@ export default class ViewCourseDetails{
 
         this.setDetails();
     }
-
-
+    
     setHead=()=>{
         this.body.innerHTML = '';
         this.body.innerHTML +=
         `
         <header>
-            <a href="#">Courses</a>
+            <a href="#" class="brand">Courses</a>
             <section class="logsection">
                 <p>Hi, ${this.name}</p>
                 <a href="#" class="home-logout-buton">Log Out</a>
@@ -104,6 +106,10 @@ export default class ViewCourseDetails{
                 this.by.textContent = `By ${this.name}`;
             }
         });
+    }
+
+    handleBrand=()=>{
+        let nou = new ViewHome(this.name);
     }
 
     handleLogOut=()=>{

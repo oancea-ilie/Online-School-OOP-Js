@@ -10,6 +10,10 @@ export default class ViewHome{
         this.body = document.querySelector('body');
         this.setHeader();
         this.setMain();
+
+        this.brand = document.querySelector(".brand");
+        this.brand.addEventListener('click',this.handleBrand);
+
         this.homeMain = document.querySelector('.home-main');
 
         this.cCourse = new ControllerCourse();
@@ -30,7 +34,7 @@ export default class ViewHome{
         this.body.innerHTML +=
         `
         <header>
-            <a href="#">Courses</a>
+            <a href="#" class="brand">Courses</a>
             <section class="logsection">
                 <p>Hi, ${this.name}</p>
                 <a href="#" class="home-logout-buton">Log Out</a>
@@ -48,12 +52,10 @@ export default class ViewHome{
             </main>
         `;
     }
-
     
     setCards=()=>{
         this.homeMain.innerHTML = '';
 
-        console.log(this.cCourse.lista);
          this.cCourse.lista.forEach((e)=>{
             this.homeMain.innerHTML += `${e.toCard()}`;
          });
@@ -62,25 +64,44 @@ export default class ViewHome{
          `
          <a class="home-card-add">
             <i class="fas fa-plus"></i>
-            <p>New Course</p>
+            <p class="new-course">New Course</p>
         </a>
          `;
 
+    }
+
+    handleBrand=()=>{
+        let nou = new ViewHome(this.name);
     }
 
     handleAdCard=()=>{
         let nou = new ViewCourseCreate(this.name);
     }
 
-
     handleHomeCards=(e)=>{
         let obj = e.target;
+        let ok = 0;
 
-        if(obj.classList !='home-card-add'){
+        if(obj.classList.contains("home-course")){
+            let title = obj.nextElementSibling;
+            title = title.innerHTML;
+            let nou  = new ViewCourseDetails(this.name, title);
+            ok=1;
+        }
+
+        if(obj.classList.contains("courseName") && ok==0){
+            let title = obj.innerHTML;
+            let nou  = new ViewCourseDetails(this.name, title);
+            ok = 1;
+        }
+
+        if(obj.classList != 'home-card-add' && obj.classList !='fas fa-plus' && obj.classList !='new-course' && ok==0){
             let title = obj.children[1];
             title = title.innerHTML;
             let nou  = new ViewCourseDetails(this.name, title);
+            ok=1;
         }
+
     }
 
     handleLogOut=()=>{

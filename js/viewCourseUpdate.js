@@ -1,5 +1,7 @@
 import ControllerCourse from "./controllerCourse.js";
 import ViewSingIn from "./viewSingIn.js";
+import ViewCourseDetails from "./viewCourseDetails.js";
+import ViewHome from "./viewHome.js";
 
 
 export default class ViewCourseUpdate{
@@ -11,38 +13,50 @@ export default class ViewCourseUpdate{
         this.setHeader();
         this.setMain();
 
-        
+        this.brand = document.querySelector(".brand");
+        this.brand.addEventListener('click',this.handleBrand);
+
         this.logOutButon = document.querySelector(".home-logout-buton");
         this.logOutButon.addEventListener('click',this.handleLogOut);
 
         this.validationErors = document.querySelector('.course-create-errors');
         this.validationErors.style.display = 'none';
 
-        this.eror = document.querySelector('.eror');
+        this.titleEror = document.querySelector('.eror-title');
+        this.titleEror.style.display = 'none';
+
+        this.descriptionEror = document.querySelector('.eror-description');
+        this.descriptionEror.style.display = 'none';
+
+        this.timeEror = document.querySelector('.eror-time');
+        this.timeEror.style.display = 'none';
+
+        this.materialsEror = document.querySelector('.eror-materials');
+        this.materialsEror.style.display = 'none';
 
         this.title = document.querySelector(".course-title");
         this.description = document.querySelector('.course-description');
         this.time = document.querySelector('.course-time');
         this.materials = document.querySelector('.course-materials');
 
-        this.createButon = document.querySelector('.create-course');
+        this.updateButon = document.querySelector('.create-course');
         this.cancelButon = document.querySelector('.cancel-course');
 
 
         this.cancelButon.addEventListener("click",this.handleCancel);
-        this.cCourse = new ControllerCourse();
+        this.updateButon.addEventListener('click', this.handleUpdate);
 
+        this.cCourse = new ControllerCourse();
         this.setDetails();
 
     }
-
 
     setHeader=()=>{
         this.body.innerHTML = '';
         this.body.innerHTML +=
         `
         <header>
-            <a href="#">Courses</a>
+            <a href="#" class="brand">Courses</a>
             <section class="logsection">
                 <p>Hi, ${this.name}</p>
                 <a href="#" class="home-logout-buton">Log Out</a>
@@ -61,7 +75,10 @@ export default class ViewCourseUpdate{
         <section class="course-create-errors">
             <p>Validation Errors</p>
             <ul>
-                <li class="eror">Lorem ipsum dolor sit amet.</li>
+                <li class="eror-title"></li>
+                <li class="eror-description"></li>
+                <li class="eror-time"></li>
+                <li class="eror-materials"></li>
             </ul>
         </section>
 
@@ -71,7 +88,7 @@ export default class ViewCourseUpdate{
                 <p>Course Title</p>
                 <input type="text" class="course-title">
 
-                <h5>By Joe Smith</h5>
+                <h5>By ${this.name}</h5>
 
                 <p>Course Description</p>
                 <textarea cols="30" rows="10" class="course-description"></textarea>
@@ -101,8 +118,86 @@ export default class ViewCourseUpdate{
                 this.time.value = e.time;
                 this.materials.value = e.materials;
             }
-        })
+        });
 
+    }
+
+    erorCeck=()=>{
+        let oke = 0;
+        if(this.title.value == ''){
+            oke = 1;
+
+            this.validationErors.style.display = 'block';
+            this.titleEror.style.display = 'block';
+            this.titleEror.textContent = 'Emptly title name!';
+        }else{
+            this.titleEror.style.display = 'none';
+        }
+
+        if(this.description.value == ''){
+            oke = 1;
+
+            this.validationErors.style.display = 'block';
+
+            this.descriptionEror.style.display = 'block';
+            this.descriptionEror.textContent = 'Emptly description!';
+        }else{
+            this.descriptionEror.style.display = 'none';
+        }
+
+        if(this.time.value == ''){
+            oke = 1;
+            
+            this.validationErors.style.display = 'block';
+
+            this.timeEror.style.display = 'block';
+            this.timeEror.textContent = 'Emptly estimated time!';
+        }else{
+            this.timeEror.style.display = 'none';
+        }
+
+        if(this.materials.value == ''){
+            oke = 1;
+
+            this.validationErors.style.display = 'block';
+
+            this.materialsEror.style.display = 'block';
+            this.materialsEror.textContent = 'Emptly materials!';
+        }else{
+            this.materialsEror.style.display = 'none';
+        }
+
+
+        return oke;
+
+    }
+
+    handleBrand=()=>{
+        let nou = new ViewHome(this.name);
+    }
+
+    handleUpdate=()=>{
+        let ok = this.erorCeck();
+
+        if(ok == 0){
+            this.cCourse.lista.forEach((e)=>{
+                if(e.name == this.courseName){
+    
+                    this.cCourse.updateName(e.id,this.title.value);
+                    this.cCourse.updateDescription(e.id,this.description.value);
+                    this.cCourse.updateTime(e.id,this.time.value);
+                    this.cCourse.updateMaterials(e.id,this.materials.value);
+    
+                    this.courseName = this.title.value;
+
+                    let nou = new ViewCourseDetails(this.name, this.courseName);
+                }
+            });
+        }
+    }
+
+    handleCancel=()=>{
+        let nou = new ViewCourseDetails(this.name, this.courseName);
     }
 
     handleLogOut=()=>{

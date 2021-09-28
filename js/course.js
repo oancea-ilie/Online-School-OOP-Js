@@ -12,7 +12,7 @@ export default class Course{
         let t = 
         `
         <a class="home-card">
-            <p>Course</p>
+            <p class="home-course">Course</p>
             <h3 class="courseName">${this.name}</h3>
         </a>
         `

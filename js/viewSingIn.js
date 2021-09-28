@@ -8,6 +8,9 @@ export default class ViewSingIn{
         this.setHeader();
         this.setMain();
 
+        this.brand = document.querySelector(".brand");
+        this.brand.addEventListener('click',this.handleBrand);
+        
         this.singinEmail = document.querySelector('.singin-email');
         this.singinPass = document.querySelector('.singin-password');
         this.singinRegisterButon = document.querySelector('.singin-singup');
@@ -25,7 +28,7 @@ export default class ViewSingIn{
         this.body.innerHTML +=
         `
         <header>
-            <a href="#">Courses</a>
+            <a href="#" class="brand">Courses</a>
         </header>
         `;
 
@@ -40,7 +43,7 @@ export default class ViewSingIn{
             <p>Email Address:</p>
             <input type="text" class="singin-email">
             <p>Password:</p>
-            <input type="text" class="singin-password">
+            <input type="password" class="singin-password">
             <section class="signin-buttons">
                 <a href="#" class="singin-singin">Log In</a>
                 <a href="#" class="singin-singup">Sign Up</a>
@@ -49,9 +52,11 @@ export default class ViewSingIn{
         `;
     }
 
-    handleLogin=()=>{
-        // this.cStudent.create('Oancea','Ilie','test@yahoo.com','123');
+    handleBrand=()=>{
+        let nou = new ViewSingIn();
+    }
 
+    handleLogin=()=>{
         this.cStudent.lista.forEach((e)=>{
             if(this.singinEmail.value == e.email && this.singinPass.value == e.pass){
                 let name = `${e.firstName} ${e.lastName}`;
