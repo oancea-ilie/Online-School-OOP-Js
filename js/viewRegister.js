@@ -11,8 +11,7 @@ export default class ViewRegister{
         this.brand = document.querySelector(".brand");
         this.brand.addEventListener('click',this.handleBrand);
 
-
-
+        this.erors = document.querySelector(".erors");
         this.firstNameEror = document.querySelector('.eror-firstName');
         this.firstNameEror.style.display = 'none';
 
@@ -87,6 +86,7 @@ export default class ViewRegister{
         if(this.firstName.value == ''){
             oke = 1;
 
+            this.erors.style.display = 'block';
             this.firstNameEror.style.display = 'block';
             this.firstNameEror.textContent = 'Emptly first name!';
         }else{
@@ -95,7 +95,7 @@ export default class ViewRegister{
 
         if(this.lastName.value == ''){
             oke = 1;
-
+            this.erors.style.display = 'block';
             this.lastNameEror.style.display = 'block';
             this.lastNameEror.textContent = 'Emptly last name!';
         }else{
@@ -104,7 +104,7 @@ export default class ViewRegister{
 
         if(this.email.value == ''){
             oke = 1;
-
+            this.erors.style.display = 'block';
             this.emailEror.style.display = 'block';
             this.emailEror.textContent = 'Emptly email!';
         }else{
@@ -113,7 +113,7 @@ export default class ViewRegister{
 
         if(this.pass.value == ''){
             oke = 1;
-
+            this.erors.style.display = 'block';
             this.passEror.style.display = 'block';
             this.passEror.textContent = 'Emptly password!';
         }else{

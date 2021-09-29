@@ -363,6 +363,16 @@ header a {
 header a:hover {
   color: white;
 }
+@media (min-width: 768px) {
+  header a {
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 1024px) {
+  header a {
+    font-size: 2rem;
+  }
+}
 
 .signin-main {
   width: 70%;
@@ -387,16 +397,33 @@ header a:hover {
   outline: none;
   border-color: #250946;
 }
-.signin-main p:last-of-type {
-  margin-top: 1rem;
-  font-size: 1.1rem;
+@media (min-width: 768px) {
+  .signin-main {
+    width: 60%;
+  }
+  .signin-main h1 {
+    font-size: 2.2rem;
+  }
+  .signin-main p {
+    font-size: 1.4rem;
+  }
+  .signin-main input {
+    font-size: 1.3rem;
+  }
 }
-.signin-main p:last-of-type a {
-  color: #250946;
-  text-decoration: none;
-}
-.signin-main p:last-of-type a:hover {
-  color: #140625;
+@media (min-width: 1024px) {
+  .signin-main {
+    width: 40%;
+  }
+  .signin-main h1 {
+    font-size: 2.3rem;
+  }
+  .signin-main p {
+    font-size: 1.5rem;
+  }
+  .signin-main input {
+    font-size: 1.4rem;
+  }
 }
 
 .signup-main {
@@ -429,15 +456,63 @@ header a:hover {
 .signup-main .erors p:first-of-type {
   color: #0da30d;
 }
+.signup-main .erors {
+  display: none;
+}
+@media (min-width: 768px) {
+  .signup-main {
+    width: 60%;
+  }
+  .signup-main h1 {
+    font-size: 2.2rem;
+  }
+  .signup-main p {
+    font-size: 1.4rem;
+  }
+  .signup-main input {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .signup-main {
+    width: 40%;
+  }
+  .signup-main h1 {
+    font-size: 2.3rem;
+  }
+  .signup-main p {
+    font-size: 1.5rem;
+  }
+  .signup-main input {
+    font-size: 1.4rem;
+  }
+}
 
 .course-details-main {
   margin: 2rem 0;
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-areas: "h1" "course-details" "course-time";
 }
 .course-details-main h1 {
-  font-size: 1.6rem;
+  grid-area: h1;
   text-align: center;
+}
+@media (min-width: 768px) {
+  .course-details-main {
+    grid-template-columns: 60% 32%;
+    grid-template-areas: "h1 h1" "course-details course-time";
+    grid-row-gap: 2rem;
+    grid-column-gap: 4rem;
+  }
+  .course-details-main h1 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .course-details-main {
+    grid-template-columns: 70% 25%;
+  }
 }
 
 .course-create-main {
@@ -450,12 +525,34 @@ header a:hover {
   font-size: 1.6rem;
   text-align: center;
 }
+@media (min-width: 768px) {
+  .course-create-main h1 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .course-create-main h1 {
+    font-size: 2.2rem;
+  }
+}
 
 .home-main {
   margin-top: 2rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .home-main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .home-main {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 .logsection a:first-of-type {
@@ -473,6 +570,22 @@ header a:hover {
   display: inline-block;
   color: white;
   padding-right: 0.5rem;
+}
+@media (min-width: 768px) {
+  .logsection p {
+    font-size: 1.4rem;
+  }
+  .logsection a {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .logsection p {
+    font-size: 1.5rem;
+  }
+  .logsection a {
+    font-size: 1.3rem;
+  }
 }
 
 .signin-buttons {
@@ -506,6 +619,16 @@ header a:hover {
   background-color: #250946;
   color: white;
 }
+@media (min-width: 768px) {
+  .signin-buttons a {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .signin-buttons a {
+    font-size: 1.4rem;
+  }
+}
 
 .signup-buttons {
   display: flex;
@@ -538,12 +661,22 @@ header a:hover {
   background-color: #250946;
   color: white;
 }
+@media (min-width: 768px) {
+  .signup-buttons a {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .signup-buttons a {
+    font-size: 1.4rem;
+  }
+}
 
 .course-actions {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
   align-items: center;
-  flex-wrap: wrap;
+  justify-items: center;
   background-color: rgba(42, 20, 68, 0.192);
   padding-bottom: 1rem;
 }
@@ -574,7 +707,26 @@ header a:hover {
   background-color: #250946;
   color: white;
 }
+@media (min-width: 768px) {
+  .course-actions {
+    height: 130px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .course-actions a {
+    width: 80%;
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .course-actions {
+    height: 100px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 
+.course-details {
+  grid-area: course-details;
+}
 .course-details h3 {
   font-size: 1rem;
   font-weight: 400;
@@ -592,8 +744,39 @@ header a:hover {
 .course-details p {
   margin-bottom: 1.5rem;
   text-align: justify;
+  line-height: 1.5rem;
+}
+@media (min-width: 768px) {
+  .course-details h3 {
+    font-size: 1.4rem;
+  }
+  .course-details h5 {
+    font-size: 1.2rem;
+  }
+  .course-details h1 {
+    font-size: 1.8rem;
+  }
+  .course-details p {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+}
+@media (min-width: 1024px) {
+  .course-details h5 {
+    font-size: 1.4rem;
+  }
+  .course-details h1 {
+    font-size: 2rem;
+  }
+  .course-details p {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
 }
 
+.course-time-materials {
+  grid-area: course-time;
+}
 .course-time-materials h3 {
   font-size: 1rem;
   font-weight: 400;
@@ -616,6 +799,35 @@ header a:hover {
 .course-time-materials ul li {
   font-size: 1.1rem;
 }
+@media (min-width: 768px) {
+  .course-time-materials h3 {
+    font-size: 1.4rem;
+  }
+  .course-time-materials h1 {
+    font-size: 1.8rem;
+  }
+  .course-time-materials p {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+  .course-time-materials ul li {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .course-time-materials ul li {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+  .course-time-materials h1 {
+    font-size: 2rem;
+  }
+  .course-time-materials p {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+}
 
 .course-create-errors {
   background-color: rgba(42, 20, 68, 0.192);
@@ -634,12 +846,50 @@ header a:hover {
 .course-create-errors ul li {
   padding-bottom: 0.5rem;
 }
+@media (min-width: 768px) {
+  .course-create-errors p {
+    font-size: 1.5rem;
+  }
+  .course-create-errors ul li {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .course-create-errors p {
+    font-size: 1.6rem;
+  }
+  .course-create-errors ul li {
+    font-size: 1.4rem;
+  }
+}
 
 .course-create-grid {
   display: grid;
   grid-template-areas: 1fr;
+  grid-template-areas: "course-create-details" "course-create-time" "course-create-buttons";
+}
+@media (min-width: 768px) {
+  .course-create-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "course-create-details course-create-time" "course-create-buttons course-create-buttons";
+    grid-column-gap: 2rem;
+  }
+  .course-create-grid a {
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 1024px) {
+  .course-create-grid {
+    grid-template-columns: 70% 28%;
+  }
+  .course-create-grid a {
+    font-size: 2rem;
+  }
 }
 
+.course-create-details {
+  grid: course-create-details;
+}
 .course-create-details p {
   font-size: 1.1rem;
   padding: 0.5rem 0;
@@ -656,12 +906,37 @@ header a:hover {
   border: 1px solid grey;
 }
 .course-create-details textarea {
-  padding: 0.4rem 0;
+  padding: 0.4rem;
   border-radius: 5px;
   width: 100%;
   border: 1px solid grey;
 }
+@media (min-width: 768px) {
+  .course-create-details p {
+    font-size: 1.3rem;
+  }
+  .course-create-details h5 {
+    font-size: 1.3rem;
+  }
+  .course-create-details input {
+    padding: 0.6rem;
+  }
+  .course-create-details textarea {
+    padding: 0.6rem;
+  }
+}
+@media (min-width: 1024px) {
+  .course-create-details p {
+    font-size: 1.4rem;
+  }
+  .course-create-details h5 {
+    font-size: 1.4rem;
+  }
+}
 
+.course-create-time-materials {
+  grid: course-create-time;
+}
 .course-create-time-materials p {
   font-size: 1.1rem;
   padding: 1rem 0;
@@ -678,8 +953,30 @@ header a:hover {
   width: 100%;
   border: 1px solid grey;
 }
+@media (min-width: 768px) {
+  .course-create-time-materials p {
+    padding: 0.5rem 0;
+    font-size: 1.3rem;
+  }
+  .course-create-time-materials p:last-of-type {
+    margin-top: 2.4rem;
+    margin-bottom: 0.4rem;
+  }
+  .course-create-time-materials input {
+    padding: 0.6rem;
+  }
+  .course-create-time-materials textarea {
+    padding: 0.6rem;
+  }
+}
+@media (min-width: 1024px) {
+  .course-create-time-materials p {
+    font-size: 1.4rem;
+  }
+}
 
 .course-create-buttons {
+  grid: course-create-buttons;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -711,6 +1008,21 @@ header a:hover {
   background-color: #250946;
   color: white;
 }
+@media (min-width: 768px) {
+  .course-create-buttons a {
+    font-size: 1.1rem;
+    padding: 0.6rem 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .course-create-buttons {
+    justify-content: flex-start;
+  }
+  .course-create-buttons a {
+    width: 30%;
+    margin-right: 1.5rem;
+  }
+}
 
 .home-card {
   cursor: pointer;
@@ -732,6 +1044,22 @@ header a:hover {
   font-size: 1.3rem;
   padding-bottom: 1rem;
 }
+@media (min-width: 768px) {
+  .home-card p {
+    font-size: 1.3rem;
+  }
+  .home-card h3 {
+    font-size: 1.4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .home-card p {
+    font-size: 1.4rem;
+  }
+  .home-card h3 {
+    font-size: 1.6rem;
+  }
+}
 
 .home-card:hover {
   background-color: #140625;
@@ -739,13 +1067,16 @@ header a:hover {
 
 .home-card-add {
   cursor: pointer;
-  background-color: #250946;
+  background-color: rgba(214, 214, 214, 0.739);
   width: 80%;
   margin: 0 auto;
   border-radius: 10px;
   padding: 1rem;
   padding-left: 1.5rem;
-  color: white;
+  color: black;
+  height: 55px;
+  display: flex;
+  align-items: center;
 }
 .home-card-add p {
   margin-left: 0.4rem;
@@ -753,9 +1084,20 @@ header a:hover {
   font-weight: 300;
   font-size: 1.1rem;
 }
+@media (min-width: 768px) {
+  .home-card-add p {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .home-card-add p {
+    font-size: 1.4rem;
+  }
+}
 
 .home-card-add:hover {
-  background-color: #140625;
+  color: white;
+  background-color: #250946;
 }
 
 /*# sourceMappingURL=style.css.map */
