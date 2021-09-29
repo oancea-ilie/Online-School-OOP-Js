@@ -86,14 +86,6 @@ export default class ControllerStudent{
     delete(id){
         if(localStorage.getItem(id)){
             localStorage.removeItem(id);
-
-            let aux = localStorage.getItem('studentContor');
-            aux = aux.charAt();
-            aux--;
-            if(aux<0){
-                aux = 0;
-            }
-            localStorage.setItem('studentContor',aux);
         }else{
             console.log('Studentul nu exista in baza de date!');
         }

@@ -8,15 +8,15 @@ export default class ControllerCourse{
     }
 
     load(){
-        let i = 0;
-        let aux = 0;
+        let i = 1;
+        let aux = 1;
 
         while(aux<=this.contor){
             
             let obj = JSON.parse(localStorage.getItem(i+'C'));
 
             if(obj){
-                this.lista.push(new Course(obj.id,obj.name, obj.description,obj.time, obj.materials));
+                this.lista.push(new Course(obj.id, obj.name, obj.description,obj.time, obj.materials));
             }
 
             i++;
@@ -25,7 +25,7 @@ export default class ControllerCourse{
     }
 
     create(name,description,time,materials){
-        let id = parseInt(this.contor)+1;
+        let id = parseInt(localStorage.getItem('courseContor'))+1;
 
         let nou = new Course(id+'C',name,description,time,materials);
 
@@ -91,19 +91,14 @@ export default class ControllerCourse{
     delete(id){
         if(localStorage.getItem(id)){
             localStorage.removeItem(id);
-            let aux = localStorage.getItem('courseContor');
-            aux = aux.charAt();
-            aux--;
-            if(aux<0){
-                aux = 0;
-            }
-            localStorage.setItem('courseContor',aux);
+
         }else{
             console.log('Cursul nu exista in baza de date!');
         }
 
         this.contor = localStorage.getItem('courseContor');
         this.load();
+        
     }
     
 

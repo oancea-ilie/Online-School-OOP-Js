@@ -80,13 +80,6 @@ export default class ControllerEnrolment{
     delete(id){
         if(localStorage.getItem(id)){
             localStorage.removeItem(id);
-            let aux = localStorage.getItem('enrollmentContor');
-            aux = aux.charAt();
-            aux--;
-            if(aux<0){
-                aux = 0;
-            }
-            localStorage.setItem('enrollmentContor',aux);
         }else{
             console.log('Inscrierea nu exista in baza de date!');
         }
